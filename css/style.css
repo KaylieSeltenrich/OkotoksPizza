@@ -1,40 +1,57 @@
-*{
+@keyframes colorChange {
+0% {background-color: darkorange}
+50% {background-color: maroon}
+100% {background-color: darkorange}
+}
+
+@keyframes imageFade {
+    0% {opacity: 100%}
+    50% {opacity: 50%}
+    100% {opacity:100%}
+    
+}
+
+* {
     margin:0;
     padding:0;
 }
 
 #grid-container {
-
-    display: grid;
+ display: grid;
     
 }
 
 #header {
-
+    display: grid;
     font-size: 4rem;
     text-align: center;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: red;
     background-color: yellow;
-    display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
    
     
 }
 
 #navbar {
-
+    display: grid;
     font-size:2rem; 
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color:darkred;
     background-color:darkorange;
-    display: grid;
     width: 100%;
-    height: 5vh;
-    grid-template-columns: 25% 25% 25% 25%;
+    min-height: 5vh;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+#navbar:hover {
+    animation-name: colorChange; 
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
     
 }
 
@@ -43,17 +60,26 @@
     position: relative;
     left: 15%;
     right: 15%;
-    
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease-in;
 }
 
+#logo:active {
+    width: 350px;
+}
 
 #footer {
-    text-align: center;
-    font-size: small;
     display:grid;
+    font-size: small;
     color:darkred; 
     background-color: darkorange;
     margin-top: 2vh;
+    height: 5vh;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+
 }
 
 .left {
@@ -106,9 +132,14 @@ h2 + p {  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans
    position: fixed;
    left: 50%;
    width: 50vw;
-   
 }
 
+.image:hover {
+   animation-name: imageFade; 
+   animation-duration: 3s;
+   animation-timing-function: ease-in-out;
+   
+}
 
 
 a:link {
